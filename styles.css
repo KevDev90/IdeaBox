@@ -1,0 +1,110 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  /* border: 1px solid red; */
+}
+
+body {
+  display: flex;
+  width: 100%;
+  margin: auto;
+}
+
+aside {
+  width: 25%;
+  height: auto;
+  background-color: #1F1F3D;
+
+}
+
+h1 {
+  color: #FFF;
+  margin: 5%;
+  margin-bottom: 8%;
+}
+
+h3 {
+  margin-left: 5%;
+  color: #BFBFDD;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.starred {
+  width: 90%;
+  height: 44px;
+  border-radius: 2%;
+  background-color: #535684;
+  border: 2px solid #353567;
+  font-size: 120%;
+  color: #E9E9F3;
+  font-weight: bolder;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+
+}
+
+.sidebar {
+  border-top: 2px solid #353567;
+  border-bottom: 2px solid #353567;
+}
+
+.top-section {
+  background-color: #A9AAD2;
+}
+
+main {
+  width: 75%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+label {
+  display: block;
+}
+
+.label-style {
+  width: 46.6%;
+}
+
+.title-input,
+.body-input {
+  height: 44px;
+  width: 100%;
+  border: 1.5px solid #5356A4;
+  border-radius: 2px;
+}
+
+.save-button {
+  background-color: #353567;
+  border: 1.5px solid #5356A4;
+  height: 44px;
+  width: 46.6%;
+  color: #FFF;
+  font-size: 120%;
+  margin-top: 4%;
+}
+
+label {
+  font-weight: bold;
+  font-size: 110%;
+  color: #1F1F3D;
+  margin-bottom: 1.5%;
+  margin-top: 5%;
+}
+
+.search-continer {
+  width: 46.6%;
+  display: inline-flex;
+
+
+}
