@@ -22,6 +22,7 @@ aside {
 h1 {
   color: #FFF;
   margin: 5%;
+  margin-bottom: 8%;
 }
 
 h3 {
@@ -47,10 +48,63 @@ h3 {
 
 }
 
-.side-bar {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+.sidebar {
   border-top: 2px solid #353567;
   border-bottom: 2px solid #353567;
+}
+
+.top-section {
+  background-color: #A9AAD2;
+}
+
+main {
+  width: 75%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+label {
+  display: block;
+}
+
+.label-style {
+  width: 46.6%;
+}
+
+.title-input,
+.body-input {
+  height: 44px;
+  width: 100%;
+  border: 1.5px solid #5356A4;
+  border-radius: 2px;
+}
+
+.save-button {
+  background-color: #353567;
+  border: 1.5px solid #5356A4;
+  height: 44px;
+  width: 46.6%;
+  color: #FFF;
+  font-size: 120%;
+  margin-top: 4%;
+}
+
+label {
+  font-weight: bold;
+  font-size: 110%;
+  color: #1F1F3D;
+  margin-bottom: 1.5%;
+  margin-top: 5%;
+}
+
+.search-continer {
+  width: 46.6%;
+  display: inline-flex;
+
+
 }
