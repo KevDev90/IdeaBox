@@ -1,0 +1,56 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  /* border: 1px solid red; */
+}
+
+body {
+  display: flex;
+  width: 100%;
+  margin: auto;
+}
+
+aside {
+  width: 25%;
+  height: auto;
+  background-color: #1F1F3D;
+
+}
+
+h1 {
+  color: #FFF;
+  margin: 5%;
+}
+
+h3 {
+  margin-left: 5%;
+  color: #BFBFDD;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.starred {
+  width: 90%;
+  height: 44px;
+  border-radius: 2%;
+  background-color: #535684;
+  border: 2px solid #353567;
+  font-size: 120%;
+  color: #E9E9F3;
+  font-weight: bolder;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+
+}
+
+.side-bar {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-top: 2px solid #353567;
+  border-bottom: 2px solid #353567;
+}
