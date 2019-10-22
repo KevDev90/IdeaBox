@@ -155,15 +155,15 @@ header,
 footer{
   background-color: #1F1F3D;
   display: flex;
-  height: 25px;
+  height: 40px;
   justify-content: space-between;
   width: 100%;
 }
 
 .card-icon {
   background-color: #1F1F3D;
-  height: 13px;
-  width: 13px;
+  height: 20px;
+  width: 30px;
 }
 
 .card-button {
