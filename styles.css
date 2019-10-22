@@ -3,7 +3,6 @@
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-  /* border: 1px solid red; */
 }
 
 body {
@@ -30,6 +29,10 @@ h3 {
   color: #BFBFDD;
   margin-top: 5%;
   margin-bottom: 5%;
+}
+
+button {
+  cursor: pointer;
 }
 
 .starred {
@@ -73,14 +76,14 @@ label {
 }
 
 .label-style {
-  width: 46.6%;
+  width: 47%;
 }
 
 .title-input,
 .body-input {
   height: 44px;
   width: 100%;
-  border: 1.5px solid #5356A4;
+  border: 2px solid #5356A4;
   border-radius: 2px;
 }
 
@@ -90,9 +93,9 @@ label {
 
 .save-button {
   background-color: #353567;
-  border: 1.5px solid #5356A4;
+  border: 2px solid #5356A4;
   height: 44px;
-  width: 46.6%;
+  width: 47%;
   color: #FFF;
   font-size: 120%;
   margin-top: 4%;
@@ -102,12 +105,12 @@ label {
   font-weight: bold;
   font-size: 110%;
   color: #1F1F3D;
-  margin-bottom: 1.5%;
+  margin-bottom: 2%;
   margin-top: 5%;
 }
 
 .search-continer {
-  width: 46.6%;
+  width: 47%;
   border: 1px solid #353567;
   display: inline-flex;
   margin-top: 3%;
@@ -131,27 +134,34 @@ label {
 }
 
 .card-section {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .card {
   border: 2px solid #1F1F3D;
-  /* margin: 0% 3% 0% 3%;
-  padding: 0% 3% 0% 3%; */
-  width: 27%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px;
+  width: 100%;
 }
 
-header {
+header,
+footer{
   background-color: #1F1F3D;
   display: flex;
+  height: 25px;
   justify-content: space-between;
   width: 100%;
 }
 
 .card-icon {
   background-color: #1F1F3D;
-  border-color: red;
   height: 13px;
   width: 13px;
 }
@@ -159,4 +169,5 @@ header {
 .card-button {
   background-color: #1F1F3D;
   border: none;
+  color: #FFF;
 }
