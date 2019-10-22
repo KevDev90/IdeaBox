@@ -15,7 +15,6 @@ aside {
   width: 25%;
   height: auto;
   background-color: #1F1F3D;
-
 }
 
 h1 {
@@ -81,7 +80,7 @@ label {
 
 .title-input,
 .body-input {
-  height: 44px;
+  height: 60px;
   width: 100%;
   border: 2px solid #5356A4;
   border-radius: 2px;
@@ -94,11 +93,12 @@ label {
 .save-button {
   background-color: #353567;
   border: 2px solid #5356A4;
-  height: 44px;
+  height: 60px;
   width: 47%;
   color: #FFF;
-  font-size: 120%;
+  font-size: 150%;
   margin-top: 4%;
+  font-weight: bolder;
 }
 
 label {
@@ -147,12 +147,11 @@ label {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 300px;
+  height: 100%;
   width: 100%;
 }
 
-header,
-footer{
+header, footer{
   background-color: #1F1F3D;
   display: flex;
   height: 40px;
@@ -160,14 +159,121 @@ footer{
   width: 100%;
 }
 
+footer{
+  display: flex;
+  justify-content: flex-start;
+  background-color: #535684;
+  border-top: 2px solid #1F1F3D;
+}
+
 .card-icon {
+  height: 35px;
+  width: 35px;
   background-color: #1F1F3D;
-  height: 20px;
-  width: 30px;
+  border: none;
+
+}
+
+.comment-icon {
+  background-color: #535684;
 }
 
 .card-button {
-  background-color: #1F1F3D;
+  background-color: #1F1F3D ;
   border: none;
   color: #FFF;
+}
+
+.comment-btn {
+  background-color: #535684;
+  border: none;
+  color: #FFF;
+}
+.comment-button {
+  font-size: 120%;
+  background-color: #535684;
+  border: none;
+  color: #FFF;
+}
+
+h2 {
+  margin-left: 15px;
+  margin-top: 15px;
+  font-size: 165%;
+}
+
+p {
+  font-size: 165%;
+  margin: 15px;
+}
+
+.card-content {
+  width: 100%;
+  height: 100%;
+}
+
+.hamburger {
+  display: none;
+  width: 13%;
+  height: 13%;
+  margin-top: 2%;
+  margin-left: 1%;
+}
+
+@media only screen and (max-width: 1075px) {
+
+  .starred {
+  font-size: 80%;
+  }
+
+  .card-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .label-style {
+    width: 70%;
+  }
+
+  .save-button {
+    width: 70%;
+  }
+
+  .search-continer {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 775px) {
+ aside{
+   width: 100%;
+   text-align: center;
+   font-size: 130%;
+   height: 100px;
+   display: flex;
+   justify-content: flex-start;
+}
+
+h1{
+  display: flex;
+  justify-content: center;
+}
+
+.hamburger{
+  display: inline-block;
+  background-color: #1F1F3D;
+  border: none;
+}
+
+body {
+  flex-direction: column;
+}
+
+main {
+  width: 100%;
+}
+
+.sidebar {
+  display: none;
+}
+
 }
