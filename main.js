@@ -4,8 +4,15 @@ var bodyInput = document.querySelector('.body-input');
 var saveButton = document.querySelector('.save-button');
 var cardSection= document.querySelector('.card-section');
 
+onload = saveButton.classList.add("disabled-save-btn");
 
 saveButton.addEventListener('click', addPastIdea);
+
+function validateUserInput() {
+  if (bodyInput.value && titleInput.value != "") {
+    saveButton.classList.remove("disabled-save-btn");
+  }
+}
 
 function createInstance() {
   var pastIdea = new Idea(titleInput.value, bodyInput.value);
