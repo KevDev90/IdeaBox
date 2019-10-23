@@ -114,6 +114,14 @@ label {
   margin-top: 4%;
 }
 
+.disabled-save-btn {
+  cursor: default;
+  background-color: #9F9FCA;
+  border: 2px solid #E5E5E5;
+  color:  #E5E5E5;
+
+}
+
 label {
   color: #1F1F3D;
   font-size: 110%;

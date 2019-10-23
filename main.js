@@ -2,10 +2,23 @@ var ideaLog = [];
 var titleInput = document.querySelector('.title-input');
 var bodyInput = document.querySelector('.body-input');
 var saveButton = document.querySelector('.save-button');
-var cardSection= document.querySelector('.card-section');
+var cardSection = document.querySelector('.card-section');
+var userForm = document.querySelector('.user-input');
 
-
+onload = saveButton.classList.add("disabled-save-btn");
+onload = saveButton.disabled = true;
+userForm.addEventListener('keyup', validateUserInput);
 saveButton.addEventListener('click', addPastIdea);
+
+function validateUserInput() {
+  if (bodyInput.value && titleInput.value != "") {
+    saveButton.classList.remove("disabled-save-btn");
+    saveButton.disabled = false;
+  } else {
+    saveButton.disabled = true;
+    saveButton.classList.add("disabled-save-btn");
+  }
+}
 
 function createInstance() {
   var pastIdea = new Idea(titleInput.value, bodyInput.value);
