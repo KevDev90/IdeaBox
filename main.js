@@ -30,6 +30,7 @@ function addPastIdea() {
   var newIdea = createInstance();
   makeCard(newIdea);
   clearForm();
+  validateUserInput();
 }
 
 function makeCard(newIdea) {
