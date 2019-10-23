@@ -16,6 +16,7 @@ function createInstance() {
 function addPastIdea() {
   var newIdea = createInstance();
   makeCard(newIdea);
+  clearForm();
 }
 
 function makeCard(newIdea) {
@@ -40,3 +41,8 @@ function makeCard(newIdea) {
       </footer>
     </div>`)
 };
+
+function clearForm() {
+  bodyInput.value = "";
+  titleInput.value = "";
+}
