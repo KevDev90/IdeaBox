@@ -1,22 +1,27 @@
 * {
-  font-family: 'Open Sans', sans-serif;
   box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
   margin: 0px;
   padding: 0px;
 }
 
 body {
   display: flex;
-  width: 100%;
   margin: auto;
+  width: 100%;
 }
 
 aside {
-  width: 25%;
-  height: auto;
   background-color: #1F1F3D;
+  height: auto;
+  width: 25%;
 }
 
+button {
+  cursor: pointer;
+}
+
+/* This styles the sidebar that later moves to the top as the screen shrinks */
 h1 {
   color: #FFF;
   margin: 5%;
@@ -24,49 +29,50 @@ h1 {
 }
 
 h3 {
-  margin-left: 5%;
   color: #BFBFDD;
-  margin-top: 5%;
   margin-bottom: 5%;
-}
-
-button {
-  cursor: pointer;
+  margin-top: 5%;
+  margin-left: 5%;
 }
 
 .starred {
-  width: 90%;
-  height: 44px;
-  border-radius: 2%;
   background-color: #535684;
   border: 2px solid #353567;
-  font-size: 120%;
+  border-radius: 2%;
   color: #E9E9F3;
+  font-size: 120%;
   font-weight: bolder;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 5%;
-  margin-bottom: 10%;
+  height: 44px;
+  margin: 5% 5% 10% 5%;
+  width: 90%;
+}
 
+.hamburger {
+  display: none;
+  height: 80px;
+  margin-left: 1%;
+  margin-top: 2%;
+  width: 80px;
 }
 
 .sidebar {
-  border-top: 2px solid #353567;
   border-bottom: 2px solid #353567;
+  border-top: 2px solid #353567;
+}
+
+/* This styles the top section and card section within the main respectively */
+main {
+  width: 75%;
 }
 
 .top-section {
   background-color: #A9AAD2;
 }
 
-main {
-  width: 75%;
-}
-
 form {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-around;
 }
 
@@ -74,12 +80,13 @@ label {
   display: block;
 }
 
-.label-style {
+.sizing {
   width: 47%;
 }
 
 .title-input,
 .body-input {
+  font-size: 180%;
   height: 60px;
   width: 100%;
   border: 2px solid #5356A4;
@@ -93,28 +100,26 @@ label {
 .save-button {
   background-color: #353567;
   border: 2px solid #5356A4;
-  height: 60px;
-  width: 47%;
   color: #FFF;
   font-size: 150%;
-  margin-top: 4%;
   font-weight: bolder;
+  px;
+  margin-top: 4%;
 }
 
 label {
-  font-weight: bold;
-  font-size: 110%;
   color: #1F1F3D;
+  font-size: 110%;
+  font-weight: bold;
   margin-bottom: 2%;
   margin-top: 5%;
 }
 
 .search-continer {
-  width: 47%;
   border: 1px solid #353567;
   display: inline-flex;
-  margin-top: 3%;
   margin-bottom: 3%;
+  margin-top: 3%;
 }
 
 .search-button {
@@ -135,23 +140,25 @@ label {
 
 .card-section {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
-  padding-top: 30px;
+  grid-template-columns: repeat(3, 1fr);
   padding-left: 30px;
   padding-right: 30px;
+  padding-top: 30px;
 }
 
+/* This styles the different cards created */
 .card {
   border: 2px solid #1F1F3D;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   height: 100%;
+  justify-content: space-between;
   width: 100%;
 }
 
-header, footer{
+header,
+footer {
   background-color: #1F1F3D;
   display: flex;
   height: 40px;
@@ -159,18 +166,17 @@ header, footer{
   width: 100%;
 }
 
-footer{
-  display: flex;
-  justify-content: flex-start;
+footer {
   background-color: #535684;
   border-top: 2px solid #1F1F3D;
+  justify-content: flex-start;
 }
 
 .card-icon {
-  height: 35px;
-  width: 35px;
   background-color: #1F1F3D;
   border: none;
+  height: 35px;
+  width: 35px;
 
 }
 
@@ -189,17 +195,18 @@ footer{
   border: none;
   color: #FFF;
 }
+
 .comment-button {
-  font-size: 120%;
   background-color: #535684;
   border: none;
   color: #FFF;
+  font-size: 120%;
 }
 
 h2 {
+  font-size: 165%;
   margin-left: 15px;
   margin-top: 15px;
-  font-size: 165%;
 }
 
 p {
@@ -208,72 +215,57 @@ p {
 }
 
 .card-content {
-  width: 100%;
   height: 100%;
-}
-
-.hamburger {
-  display: none;
-  width: 80px;
-  height: 80px;
-  margin-top: 2%;
-  margin-left: 1%;
+  width: 100%;
 }
 
 @media only screen and (max-width: 1075px) {
 
   .starred {
-  font-size: 80%;
+  font-size: 100%;
+  }
+
+  .sizing {
+    width: 70%;
   }
 
   .card-section {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .label-style {
-    width: 70%;
-  }
-
-  .save-button {
-    width: 70%;
-  }
-
-  .search-continer {
-    width: 70%;
-  }
 }
 
 @media only screen and (max-width: 775px) {
-  aside {
-    width: 100%;
-    text-align: center;
-    font-size: 130%;
-    height: 100px;
-    display: flex;
-    justify-content: flex-start;
-  }
-
-  h1 {
-    width: 85%;
-
-  }
-
-  .hamburger {
-    display: inline-block;
-    background-color: #1F1F3D;
-    border: none;
-  }
 
   body {
     flex-direction: column;
   }
 
-  main {
+  aside {
+    display: flex;
+    font-size: 130%;
+    height: 100px;
+    justify-content: flex-start;
+    text-align: center;
+    width: 100%;
+  }
+
+  h1 {
     width: 100%;
   }
 
   .sidebar {
     display: none;
+  }
+
+  .hamburger {
+    background-color: #1F1F3D;
+    border: none;
+    display: inline-block;
+    position: absolute;
+  }
+
+  main {
+    width: 100%;
   }
 }
 
@@ -284,27 +276,16 @@ p {
 
   .card-section {
     grid-template-columns: repeat(1, 1fr);
-    padding-top: 30px;
     padding-left: 20px;
     padding-right: 20px;
+    padding-top: 30px;
   }
 
-  .label-style {
-    width: 95%;
-  }
-
-  .save-button {
-    width: 95%;
-  }
-
-  .search-continer {
+  .sizing {
     width: 95%;
   }
 
   .card-content {
     font-size: 80%;
   }
-
-
-
 }
