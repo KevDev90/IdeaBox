@@ -7,7 +7,7 @@ var userForm = document.querySelector('.user-input');
 
 onload = saveButton.classList.add("disabled-save-btn");
 onload = saveButton.disabled = true;
-userForm.addEventListener('keyup',validateUserInput);
+userForm.addEventListener('keyup', validateUserInput);
 saveButton.addEventListener('click', addPastIdea);
 
 function validateUserInput() {
@@ -15,7 +15,8 @@ function validateUserInput() {
     saveButton.classList.remove("disabled-save-btn");
     saveButton.disabled = false;
   } else {
-    
+    saveButton.disabled = true;
+    saveButton.classList.add("disabled-save-btn");
   }
 }
 
