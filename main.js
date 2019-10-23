@@ -19,7 +19,7 @@ function addPastIdea() {
 }
 
 function makeCard(newIdea) {
-  cardSection.insertAdjacentHTML('beforeend', `<div id="${newIdea.id}"   <div class="card">
+  cardSection.insertAdjacentHTML('beforeend', `<div id="${newIdea.id}" class="card">
       <header>
         <button class="card-button" type="button">
           <img class="card-icon" src="images/star-active.svg" alt="Star icon"/>
