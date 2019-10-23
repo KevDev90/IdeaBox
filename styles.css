@@ -7,13 +7,15 @@
 
 body {
   display: flex;
+  height: 100%;
   margin: auto;
   width: 100%;
 }
 
 aside {
   background-color: #1F1F3D;
-  height: auto;
+  height: 100vh;
+  position: fixed;
   width: 25%;
 }
 
@@ -62,6 +64,9 @@ h3 {
 
 /* This styles the top section and card section within the main respectively */
 main {
+  background-color: #EAEAF4;
+  height: 100vh;
+  margin-left: 25%;
   width: 75%;
 }
 
@@ -86,15 +91,17 @@ label {
 
 .title-input,
 .body-input {
-  font-size: 180%;
-  height: 60px;
-  width: 100%;
   border: 2px solid #5356A4;
   border-radius: 2px;
+  font-size: 180%;
+  height: 60px;
+  padding-left: 14px;
+  width: 100%;
 }
 
 .body-input {
   height: 120px;
+  padding-top: 10px;
 }
 
 .save-button {
@@ -103,7 +110,7 @@ label {
   color: #FFF;
   font-size: 150%;
   font-weight: bolder;
-  px;
+  height: 60px;
   margin-top: 4%;
 }
 
@@ -115,7 +122,7 @@ label {
   margin-top: 5%;
 }
 
-.search-continer {
+.search-container {
   border: 1px solid #353567;
   display: inline-flex;
   margin-bottom: 3%;
@@ -139,6 +146,7 @@ label {
 }
 
 .card-section {
+  background-color: #EAEAF4;
   display: grid;
   grid-gap: 30px;
   grid-template-columns: repeat(3, 1fr);
@@ -205,7 +213,7 @@ footer {
 
 h2 {
   font-size: 165%;
-  margin-left: 15px;
+  text-align: center;
   margin-top: 15px;
 }
 
@@ -245,6 +253,7 @@ p {
     font-size: 130%;
     height: 100px;
     justify-content: flex-start;
+    position: static;
     text-align: center;
     width: 100%;
   }
@@ -265,6 +274,7 @@ p {
   }
 
   main {
+    margin: 0;
     width: 100%;
   }
 }
