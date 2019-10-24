@@ -239,6 +239,26 @@ p {
   width: 100%;
 }
 
+.star-inactive {
+  background-image: url(images/star.svg);
+  background-repeat: no-repeat;
+  height: 36px;
+  width: 36px;
+  background-color: transparent;
+  padding-bottom: 7px;
+  border-color: transparent;
+}
+
+.star-active {
+  background-image: url(images/star-active.svg);
+  background-repeat: no-repeat;
+  height: 36px;
+  width: 36px;
+  background-color: transparent;
+  padding-bottom: 7px;
+  border-color: transparent;
+}
+
 @media only screen and (max-width: 1075px) {
 
   .starred {
