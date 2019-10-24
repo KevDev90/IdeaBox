@@ -4,6 +4,7 @@ var bodyInput = document.querySelector('.body-input');
 var saveButton = document.querySelector('.save-button');
 var cardSection = document.querySelector('.card-section');
 var userForm = document.querySelector('.user-input');
+var deleteButton = document.querySelector('.delete-inactive')
 
 onload = saveButton.classList.add("disabled-save-btn");
 onload = saveButton.disabled = true;
@@ -36,10 +37,9 @@ function addPastIdea() {
 function makeCard(newIdea) {
   cardSection.insertAdjacentHTML('beforeend', `<div id="${newIdea.id}" class="card">
       <header>
-        <button class="card-button star-inactive" type="button" onclick= "starButton(event)">
+        <button class="card-button inactive" type="button" onclick="starButton(event)">
         </button>
-        <button class="card-button delete-inactive" type="button">
-          <img class="card-icon delete" src="images/delete.svg" alt="Delete icon"/>
+        <button class="card-button inactive delete-inactive" type="button" onclick="deleteCard(event)">
         </button>
       </header>
       <section class="card-content">
@@ -70,5 +70,21 @@ function starButton(event) {
     event.target.classList.remove('star-active');
   } else {
     event.target.classList.add('star-active');
+  }
+}
+
+function deleteCard(event) {
+  console.log(event);
+  var hiddenId = event.target.closest('.card').id;
+  removeCardObj(ideaLog, hiddenId);
+  event.target.closest('.card').remove();
+}
+
+function removeCardObj(ideaLog, id) {
+  for (var i = 0; i < ideaLog.length; i++)
+  if (ideaLog[i].id === Number(id)) {
+    ideaLog.splice(i, 1);
+    console.log(ideaLog)
+    break;
   }
 }
