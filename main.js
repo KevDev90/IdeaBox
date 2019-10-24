@@ -62,7 +62,6 @@ function clearForm() {
 
 function starButton(event) {
   var cardId = event.target.closest('.card').id;
-  var starButton = document.querySelector('star')
   var instance = ideaLog.find(function(idea){
   return Number(idea.id) === Number(cardId);
   })
