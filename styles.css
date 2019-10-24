@@ -167,8 +167,7 @@ label {
   border: 2px solid #1F1F3D;
   display: flex;
   flex-direction: column;
-  max-height: 300px;
-
+  height: auto;
   justify-content: space-between;
   width: 100%;
 }
@@ -239,7 +238,7 @@ p {
   width: 100%;
 }
 
-.star-inactive {
+.inactive {
   background-image: url(images/star.svg);
   background-repeat: no-repeat;
   height: 36px;
@@ -251,7 +250,14 @@ p {
 
 .star-active {
   background-image: url(images/star-active.svg);
-  
+}
+
+.delete-inactive {
+  background-image: url(images/delete.svg);
+}
+
+.delete-active {
+  background-image: url(images/delete-active.svg);
 }
 
 @media only screen and (max-width: 1075px) {
