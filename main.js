@@ -36,11 +36,10 @@ function addPastIdea() {
 function makeCard(newIdea) {
   cardSection.insertAdjacentHTML('beforeend', `<div id="${newIdea.id}" class="card">
       <header>
-        <button class="card-button" type="button">
-          <img class="card-icon" src="images/star-active.svg" alt="Star icon"/>
+        <button class="card-button star-inactive" type="button" onclick= "starButton(event)">
         </button>
-        <button class="card-button" type="button">
-          <img class="card-icon" src="images/delete.svg" alt="Delete icon"/>
+        <button class="card-button delete-inactive" type="button">
+          <img class="card-icon delete" src="images/delete.svg" alt="Delete icon"/>
         </button>
       </header>
       <section class="card-content">
@@ -59,4 +58,18 @@ function makeCard(newIdea) {
 function clearForm() {
   bodyInput.value = "";
   titleInput.value = "";
+}
+
+function starButton(event) {
+  var cardId = event.target.closest('.card').id;
+  var starButton = document.querySelector('star')
+  var instance = ideaLog.find(function(idea){
+  return Number(idea.id) === Number(cardId);
+  })
+  instance.toggleStar();
+  if (!instance.star) {
+    event.target.classList.remove('star-active');
+  } else {
+    event.target.classList.add('star-active');
+  }
 }

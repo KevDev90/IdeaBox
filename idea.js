@@ -6,4 +6,8 @@ class Idea {
     this.star = false;
   }
 
+  toggleStar() {
+  this.star = !this.star;
+  }
+
 }
