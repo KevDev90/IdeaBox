@@ -10,4 +10,8 @@ class Idea {
   this.star = !this.star;
   }
 
+  saveToLocal() {
+    localStorage.setItem(JSON.stringify(this.id), JSON.stringify(this))
+  }
+
 }

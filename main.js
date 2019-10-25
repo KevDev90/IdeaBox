@@ -4,12 +4,27 @@ var bodyInput = document.querySelector('.body-input');
 var saveButton = document.querySelector('.save-button');
 var cardSection = document.querySelector('.card-section');
 var userForm = document.querySelector('.user-input');
-var deleteButton = document.querySelector('.delete-inactive')
+var deleteButton = document.querySelector('.delete-inactive');
 
 onload = saveButton.classList.add("disabled-save-btn");
 onload = saveButton.disabled = true;
 userForm.addEventListener('keyup', validateUserInput);
 saveButton.addEventListener('click', addPastIdea);
+
+window.onload = checkLocalStorage();
+
+
+  function checkLocalStorage() {
+  if(localStorage) {
+    for(var i=0; i < localStorage.length; i++) {
+      var id = localStorage.key(i);
+      var item = JSON.parse(localStorage.getItem(id));
+      item = new Idea(item.title, item.body, id);
+      makeCard(item);
+      ideaLog.push(item);
+    }
+  }
+}
 
 function validateUserInput() {
   if (bodyInput.value && titleInput.value != "") {
@@ -32,6 +47,7 @@ function addPastIdea() {
   makeCard(newIdea);
   clearForm();
   validateUserInput();
+  newIdea.saveToLocal();
 }
 
 function makeCard(newIdea) {
@@ -74,7 +90,7 @@ function starButton(event) {
 }
 
 function deleteCard(event) {
-  console.log(event);
+  event.target.classList.add('delete-active');
   var hiddenId = event.target.closest('.card').id;
   removeCardObj(ideaLog, hiddenId);
   event.target.closest('.card').remove();
