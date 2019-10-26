@@ -13,7 +13,6 @@ saveButton.addEventListener('click', addPastIdea);
 
 window.onload = checkLocalStorage();
 
-
   function checkLocalStorage() {
   if(localStorage) {
     for(var i=0; i < localStorage.length; i++) {
@@ -90,11 +89,17 @@ function starButton(event) {
 }
 
 function deleteCard(event) {
-  event.target.classList.add('delete-active');
-  var hiddenId = event.target.closest('.card').id;
-  removeCardObj(ideaLog, hiddenId);
+  // event.target.classList.add('delete-active');
+  var cardId = event.target.closest('.card').id;
+  removeCardObj(cardId);
   event.target.closest('.card').remove();
+  var instance = ideaLog.find(function(idea){
+  return Number(idea.id) === Number(cardId);
+  })
+  instance.removeFromLocal(cardId)
 }
+
+// Cards are not being removed from array currently
 
 function removeCardObj(ideaLog, id) {
   for (var i = 0; i < ideaLog.length; i++)
