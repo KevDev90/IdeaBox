@@ -89,15 +89,14 @@ function starButton(event) {
 }
 
 function deleteCard(event) {
-  event.target.classList.add('delete-active');
+  // event.target.classList.add('delete-active');
   var cardId = event.target.closest('.card').id;
-  removeCardObj(ideaLog, cardId);
+  removeCardObj(cardId);
   event.target.closest('.card').remove();
   var instance = ideaLog.find(function(idea){
   return Number(idea.id) === Number(cardId);
   })
   instance.removeFromLocal(cardId)
-
 }
 
 function removeCardObj(ideaLog, id) {
