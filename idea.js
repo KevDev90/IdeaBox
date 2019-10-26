@@ -14,4 +14,8 @@ class Idea {
     localStorage.setItem(JSON.stringify(this.id), JSON.stringify(this))
   }
 
+  removeFromLocal(id) {
+    localStorage.removeItem(id);
+  }
+
 }
