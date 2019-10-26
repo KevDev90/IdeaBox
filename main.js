@@ -99,6 +99,8 @@ function deleteCard(event) {
   instance.removeFromLocal(cardId)
 }
 
+// Cards are not being removed from array currently
+
 function removeCardObj(ideaLog, id) {
   for (var i = 0; i < ideaLog.length; i++)
   if (ideaLog[i].id === Number(id)) {
