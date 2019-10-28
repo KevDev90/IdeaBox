@@ -82,13 +82,36 @@ function starButton(event) {
   var instance = ideaLog.find(function(idea){
   return Number(idea.id) === Number(cardId);
   })
+
+  console.log(instance, 'string1')
   instance.toggleStar();
+  storeStar();
+  console.log(instance, 'string2');
   if (!instance.star) {
     event.target.classList.remove('star-active');
   } else {
     event.target.classList.add('star-active');
   }
 }
+
+function storeStar() {
+  if(localStorage) {
+    for(var i=0; i < localStorage.length; i++) {
+      var id = localStorage.key(i);
+    var instance = ideaLog.find(function(idea){
+      console.log(idea, 'string3')
+    return Number(idea.id) })
+    var item = JSON.parse(localStorage.getItem(id));
+    console.log(idea, '4');
+    localStorage.setItem(JSON.stringify(id), JSON.stringify(item))
+  }
+}
+
+
+  // get item
+  //update and reset item
+  }
+
 
 function deleteCard(event) {
   // add hover to change delete active img
