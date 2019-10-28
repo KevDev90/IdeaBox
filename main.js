@@ -18,7 +18,9 @@ window.onload = checkLocalStorage();
     for(var i=0; i < localStorage.length; i++) {
       var id = localStorage.key(i);
       var item = JSON.parse(localStorage.getItem(id));
-      item = new Idea(item.title, item.body, id);
+      console.log(item, 'anything-else');
+      item = new Idea(item.title, item.body, id, item.star);
+      console.log(item, 'anything');
       makeCard(item);
       ideaLog.push(item);
     }
@@ -89,23 +91,20 @@ function starButton(event) {
 }
 
 function deleteCard(event) {
-  // event.target.classList.add('delete-active');
+  // add hover to change delete active img
   var cardId = event.target.closest('.card').id;
+  var instance = ideaLog.find(function(idea){
+    return Number(idea.id) === Number(cardId);
+  })
+  instance.removeFromLocal()
   removeCardObj(cardId);
   event.target.closest('.card').remove();
-  var instance = ideaLog.find(function(idea){
-  return Number(idea.id) === Number(cardId);
-  })
-  instance.removeFromLocal(cardId)
 }
 
-// Cards are not being removed from array currently
-
-function removeCardObj(ideaLog, id) {
+function removeCardObj(id) {
   for (var i = 0; i < ideaLog.length; i++)
   if (ideaLog[i].id === Number(id)) {
     ideaLog.splice(i, 1);
-    console.log(ideaLog)
     break;
   }
 }
