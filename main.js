@@ -79,45 +79,43 @@ function clearForm() {
 
 function starButton(event) {
   var cardId = event.target.closest('.card').id;
-  var instance = ideaLog.find(function(idea){
-  return Number(idea.id) === Number(cardId);
+  var instance = ideaLog.find(function(idea1){
+  return Number(idea1.id) === Number(cardId);
   })
 
   console.log(instance, 'string1')
   instance.toggleStar();
-  storeStar();
+
   console.log(instance, 'string2');
   if (!instance.star) {
     event.target.classList.remove('star-active');
   } else {
     event.target.classList.add('star-active');
   }
+    storeStar();
 }
 
 function storeStar() {
   if(localStorage) {
-    for(var i=0; i < localStorage.length; i++) {
-      var id = localStorage.key(i);
-    var instance = ideaLog.find(function(idea){
-      console.log(idea, 'string3')
-    return Number(idea.id) })
+    for (var i=0; i < localStorage.length; i++) {
+    var id = localStorage.key(i);
+    var instance = ideaLog.find(function(idea2) {
+    return Number(idea2.id) })
     var item = JSON.parse(localStorage.getItem(id));
-    console.log(idea, '4');
-    localStorage.setItem(JSON.stringify(id), JSON.stringify(item))
+
+    // localStorage.setItem(JSON.stringify(id), JSON.stringify(whole object))
+    JSON.parse(localStorage.removeItem(id));
+    // saveToLocal(item);
+    }
   }
 }
-
-
-  // get item
-  //update and reset item
-  }
 
 
 function deleteCard(event) {
   // add hover to change delete active img
   var cardId = event.target.closest('.card').id;
-  var instance = ideaLog.find(function(idea){
-    return Number(idea.id) === Number(cardId);
+  var instance = ideaLog.find(function(idea3){
+    return Number(idea3.id) === Number(cardId);
   })
   instance.removeFromLocal()
   removeCardObj(cardId);
