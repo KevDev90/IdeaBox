@@ -5,9 +5,11 @@ var saveButton = document.querySelector('.save-button');
 var cardSection = document.querySelector('.card-section');
 var userForm = document.querySelector('.user-input');
 var deleteButton = document.querySelector('.delete-inactive');
+var isItFav = "";
 
 onload = saveButton.classList.add("disabled-save-btn");
 onload = saveButton.disabled = true;
+
 userForm.addEventListener('keyup', validateUserInput);
 saveButton.addEventListener('click', addPastIdea);
 
@@ -18,10 +20,10 @@ window.onload = checkLocalStorage();
     for(var i=0; i < localStorage.length; i++) {
       var id = localStorage.key(i);
       var item = JSON.parse(localStorage.getItem(id));
-      console.log(item, 'anything-else');
-      item = new Idea(item.title, item.body, id, item.star);
-      console.log(item, 'anything');
+      item = new Idea(item.title, item.body, item.id, item.star);
+      // starCheck(item);
       makeCard(item);
+
       ideaLog.push(item);
     }
   }
@@ -41,20 +43,28 @@ function createInstance() {
   var pastIdea = new Idea(titleInput.value, bodyInput.value);
   ideaLog.push(pastIdea);
   return pastIdea;
-};
+}
 
 function addPastIdea() {
   var newIdea = createInstance();
   makeCard(newIdea);
   clearForm();
   validateUserInput();
-  newIdea.saveToLocal();
+  newIdea.saveToLocal(ideaLog);
 }
 
+// starCheck(item) {
+//   if(item.star === true) {
+//     isItFav = "star-active";
+//   }
+// }
+
 function makeCard(newIdea) {
-  cardSection.insertAdjacentHTML('beforeend', `<div id="${newIdea.id}" class="card">
+  // debugger;
+var starSource = newIdea.star ? "images/star-active.svg" : "images/star.svg";
+  cardSection.insertAdjacentHTML('afterbegin', `<div id="${newIdea.id}" class="card">
       <header>
-        <button class="card-button inactive" type="button" onclick="starButton(event)">
+        <button class="card-button inactive ${isItFav}" type="button" onclick="starButton(event)">
         </button>
         <button class="card-button inactive delete-inactive" type="button" onclick="deleteCard(event)">
         </button>
@@ -82,11 +92,7 @@ function starButton(event) {
   var instance = ideaLog.find(function(idea1){
   return Number(idea1.id) === Number(cardId);
   })
-
-  console.log(instance, 'string1')
   instance.toggleStar();
-
-  console.log(instance, 'string2');
   if (!instance.star) {
     event.target.classList.remove('star-active');
   } else {
@@ -97,15 +103,13 @@ function starButton(event) {
 
 function storeStar() {
   if(localStorage) {
+    var cardId = event.target.closest('.card').id;
     for (var i=0; i < localStorage.length; i++) {
     var id = localStorage.key(i);
-    var instance = ideaLog.find(function(idea2) {
-    return Number(idea2.id) })
+    var instance = ideaLog.find(function(idea) {
+    return Number(idea.id) === Number(cardId)})
     var item = JSON.parse(localStorage.getItem(id));
-
-    // localStorage.setItem(JSON.stringify(id), JSON.stringify(whole object))
-    JSON.parse(localStorage.removeItem(id));
-    // saveToLocal(item);
+    (localStorage.setItem(JSON.stringify(instance.id), JSON.stringify(instance)));
     }
   }
 }
@@ -114,8 +118,8 @@ function storeStar() {
 function deleteCard(event) {
   // add hover to change delete active img
   var cardId = event.target.closest('.card').id;
-  var instance = ideaLog.find(function(idea3){
-    return Number(idea3.id) === Number(cardId);
+  var instance = ideaLog.find(function(idea){
+    return Number(idea.id) === Number(cardId);
   })
   instance.removeFromLocal()
   removeCardObj(cardId);

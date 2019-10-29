@@ -3,7 +3,7 @@ class Idea {
     this.title = title;
     this.body = body;
     this.id = id || Date.now();
-    this.star = false;
+    this.star = star || false;
   }
 
   toggleStar() {
