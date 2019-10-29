@@ -256,7 +256,8 @@ p {
   background-image: url(images/delete.svg);
 }
 
-.delete-active {
+
+.delete-inactive:hover {
   background-image: url(images/delete-active.svg);
 }
 
