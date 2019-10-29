@@ -12,6 +12,7 @@ onload = saveButton.disabled = true;
 
 userForm.addEventListener('keyup', validateUserInput);
 saveButton.addEventListener('click', addPastIdea);
+cardSection.addEventListener('click', buttonConditionals);
 
 window.onload = checkLocalStorage();
 
@@ -50,23 +51,17 @@ function addPastIdea() {
   makeCard(newIdea);
   clearForm();
   validateUserInput();
-  newIdea.saveToLocal(ideaLog);
+  newIdea.saveToLocal();
 }
-
-// starCheck(item) {
-//   if(item.star === true) {
-//     isItFav = "star-active";
-//   }
-// }
 
 function makeCard(newIdea) {
   // debugger;
-var starSource = newIdea.star ? "images/star-active.svg" : "images/star.svg";
+
   cardSection.insertAdjacentHTML('afterbegin', `<div id="${newIdea.id}" class="card">
       <header>
-        <button class="card-button inactive ${isItFav}" type="button" onclick="starButton(event)">
+        <button class="card-button inactive star-${newIdea.star}" type="button">
         </button>
-        <button class="card-button inactive delete-inactive" type="button" onclick="deleteCard(event)">
+        <button class="card-button inactive delete-inactive" type="button">
         </button>
       </header>
       <section class="card-content">
@@ -94,26 +89,12 @@ function starButton(event) {
   })
   instance.toggleStar();
   if (!instance.star) {
-    event.target.classList.remove('star-active');
+    event.target.classList.remove('star-true');
   } else {
-    event.target.classList.add('star-active');
+    event.target.classList.add('star-true');
   }
-    storeStar();
+    instance.saveToLocal();
 }
-
-function storeStar() {
-  if(localStorage) {
-    var cardId = event.target.closest('.card').id;
-    for (var i=0; i < localStorage.length; i++) {
-    var id = localStorage.key(i);
-    var instance = ideaLog.find(function(idea) {
-    return Number(idea.id) === Number(cardId)})
-    var item = JSON.parse(localStorage.getItem(id));
-    (localStorage.setItem(JSON.stringify(instance.id), JSON.stringify(instance)));
-    }
-  }
-}
-
 
 function deleteCard(event) {
   // add hover to change delete active img
@@ -130,6 +111,14 @@ function removeCardObj(id) {
   for (var i = 0; i < ideaLog.length; i++)
   if (ideaLog[i].id === Number(id)) {
     ideaLog.splice(i, 1);
-    break;
+  }
+}
+
+function buttonConditionals(event) {
+  if(event.target.classList.contains('star-true' || 'star-false')) {
+     starButton(event)
+  }
+  if(event.target.classList.contains('delete-inactive')) {
+     deleteCard(event)
   }
 }
