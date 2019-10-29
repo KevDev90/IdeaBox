@@ -115,7 +115,9 @@ function removeCardObj(id) {
 }
 
 function buttonConditionals(event) {
-  if(event.target.classList.contains('star-true' || 'star-false')) {
+  if(event.target.classList.contains('star-true')) {
+     starButton(event)
+  } else if(event.target.classList.contains('star-false')) {
      starButton(event)
   }
   if(event.target.classList.contains('delete-inactive')) {
