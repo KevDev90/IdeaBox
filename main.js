@@ -1,31 +1,32 @@
+// global variables
+var bodyInput = document.querySelector(".body-input");
+var cardSection = document.querySelector(".card-section");
+var deleteButton = document.querySelector(".delete-inactive");
 var ideaLog = [];
-var titleInput = document.querySelector('.title-input');
-var bodyInput = document.querySelector('.body-input');
-var saveButton = document.querySelector('.save-button');
-var cardSection = document.querySelector('.card-section');
-var userForm = document.querySelector('.user-input');
-var deleteButton = document.querySelector('.delete-inactive');
-var searchInput = document.querySelector('.search-input');
+var saveButton = document.querySelector(".save-button");
+var searchInput = document.querySelector(".search-input");
+var titleInput = document.querySelector(".title-input");
+var userForm = document.querySelector(".user-input");
 
-onload = saveButton.classList.add("disabled-save-btn");
-onload = saveButton.disabled = true;
-
-searchInput.addEventListener('keyup', searchCards);
-userForm.addEventListener('keyup', validateUserInput);
-saveButton.addEventListener('click', addPastIdea);
-cardSection.addEventListener('click', buttonConditionals);
-
+// when the window loads
 window.onload = checkLocalStorage();
+window.onload = saveButton.classList.add("disabled-save-btn");
+window.onload = saveButton.disabled = true;
 
-  function checkLocalStorage() {
-  if(localStorage) {
-    for(var i=0; i < localStorage.length; i++) {
+// event listeners
+cardSection.addEventListener("click", buttonConditionals);
+saveButton.addEventListener("click", addPastIdea);
+searchInput.addEventListener("keyup", searchCards);
+userForm.addEventListener("keyup", validateUserInput);
+
+// functions
+function checkLocalStorage() {
+  if (localStorage) {
+    for (var i = 0; i < localStorage.length; i++) {
       var id = localStorage.key(i);
       var item = JSON.parse(localStorage.getItem(id));
       item = new Idea(item.title, item.body, item.id, item.star);
-      // starCheck(item);
       makeCard(item);
-
       ideaLog.push(item);
     }
   }
@@ -56,9 +57,7 @@ function addPastIdea() {
 }
 
 function makeCard(newIdea) {
-  // debugger;
-
-  cardSection.insertAdjacentHTML('afterbegin', `<div id="${newIdea.id}" class="card">
+  cardSection.insertAdjacentHTML("afterbegin", `<div id="${newIdea.id}" class="card">
       <header>
         <button class="card-button inactive star-${newIdea.star}" type="button">
         </button>
@@ -70,42 +69,49 @@ function makeCard(newIdea) {
         <p>${newIdea.body}</p>
       </section>
       <footer>
-        <button class=" comment-btn" type="button">
-          <img class="card-icon comment-icon" src="images/comment.svg" alt="Comment icon"/>
+        <button class=" comment-button" type="button">
+          <img class="card-icon comment-button" src="images/comment.svg" alt="Comment icon"/>
         </button>
-        <button class="comment-button comment-btn" type="button">Comment</button>
+        <button class="comment-button" type="button">Comment</button>
       </footer>
     </div>`)
-};
+}
 
 function clearForm() {
   bodyInput.value = "";
   titleInput.value = "";
 }
 
+// Currently working on consolidating with this function
+// function findInstance(event) {
+//   var cardId = event.target.closest(".card").id;
+//   var instance = ideaLog.find(function(idea){
+//   return Number(idea.id) === Number(cardId);
+//   })
+// }
+
 function starButton(event) {
-  var cardId = event.target.closest('.card').id;
-  var instance = ideaLog.find(function(idea1){
-  return Number(idea1.id) === Number(cardId);
+  var cardId = event.target.closest(".card").id;
+  var instance = ideaLog.find(function(idea){
+  return Number(idea.id) === Number(cardId);
   })
   instance.toggleStar();
   if (!instance.star) {
-    event.target.classList.remove('star-true');
+    event.target.classList.remove("star-true");
   } else {
-    event.target.classList.add('star-true');
+    event.target.classList.add("star-true");
   }
     instance.saveToLocal();
 }
 
 function deleteCard(event) {
-  // add hover to change delete active img
-  var cardId = event.target.closest('.card').id;
+  var cardId = event.target.closest(".card").id;
   var instance = ideaLog.find(function(idea){
-    return Number(idea.id) === Number(cardId);
+  return Number(idea.id) === Number(cardId);
   })
   instance.removeFromLocal()
   removeCardObj(cardId);
-  event.target.closest('.card').remove();
+  event.target.closest(".card").remove();
 }
 
 function removeCardObj(id) {
@@ -116,13 +122,13 @@ function removeCardObj(id) {
 }
 
 function buttonConditionals(event) {
-  if(event.target.classList.contains('star-true')) {
-     starButton(event)
-  } else if(event.target.classList.contains('star-false')) {
-     starButton(event)
+  if(event.target.classList.contains("star-true")) {
+     starButton(event);
+  } else if(event.target.classList.contains("star-false")) {
+     starButton(event);
   }
-  if(event.target.classList.contains('delete-inactive')) {
-     deleteCard(event)
+  if(event.target.classList.contains("delete-inactive")) {
+     deleteCard(event);
   }
 }
 
@@ -133,7 +139,7 @@ function searchCards() {
   var bodySearch = idea.body;
     return titleSearch.toUpperCase().includes(search) || bodySearch.toUpperCase().includes(search);
   });
-  cardSection.innerHTML = '';
+  cardSection.innerHTML = "";
   filter.forEach(function(filterInstance){
     makeCard(filterInstance);
   });

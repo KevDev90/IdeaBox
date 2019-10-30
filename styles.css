@@ -33,8 +33,8 @@ h1 {
 h3 {
   color: #BFBFDD;
   margin-bottom: 5%;
-  margin-top: 5%;
   margin-left: 5%;
+  margin-top: 5%;
 }
 
 .starred {
@@ -115,11 +115,10 @@ label {
 }
 
 .disabled-save-btn {
-  cursor: default;
   background-color: #9F9FCA;
   border: 2px solid #E5E5E5;
+  cursor: default;
   color:  #E5E5E5;
-
 }
 
 label {
@@ -195,18 +194,8 @@ footer {
 
 }
 
-.comment-icon {
-  background-color: #535684;
-}
-
 .card-button {
   background-color: #1F1F3D ;
-  border: none;
-  color: #FFF;
-}
-
-.comment-btn {
-  background-color: #535684;
   border: none;
   color: #FFF;
 }
@@ -220,17 +209,16 @@ footer {
 
 h2 {
   font-size: 165%;
-  text-align: center;
+  margin-left: 15px;
   margin-top: 15px;
+  text-align: left;
   white-space: normal;
   word-break: break-all;
 }
 
 p {
-  font-size: 165%;
+  font-size: 152%;
   margin: 15px;
-  white-space: normal;
-  word-break: break-all;
 }
 
 .card-content {
@@ -239,13 +227,13 @@ p {
 }
 
 .inactive {
+  background-color: transparent;
   background-image: url(images/star.svg);
   background-repeat: no-repeat;
-  height: 36px;
-  width: 36px;
-  background-color: transparent;
-  padding-bottom: 7px;
   border-color: transparent;
+  height: 36px;
+  padding-bottom: 7px;
+  width: 36px;
 }
 
 .star-true {
@@ -264,7 +252,7 @@ p {
 @media only screen and (max-width: 1075px) {
 
   .starred {
-  font-size: 100%;
+    font-size: 100%;
   }
 
   .sizing {
