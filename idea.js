@@ -7,16 +7,14 @@ class Idea {
   }
 
   toggleStar() {
-  this.star = !this.star;
+    this.star = !this.star;
   }
 
   saveToLocal() {
-    // removeFromLocal()
     localStorage.setItem(JSON.stringify(this.id), JSON.stringify(this));
   }
 
   removeFromLocal() {
     localStorage.removeItem(this.id);
   }
-
 }
