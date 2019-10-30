@@ -127,11 +127,11 @@ function buttonConditionals(event) {
 }
 
 function searchCards() {
-  var search = searchInput.value;
+  var search = searchInput.value.toUpperCase();
   var filter = ideaLog.filter(function(idea){
   var titleSearch = idea.title;
   var bodySearch = idea.body;
-    return titleSearch.includes(search) || bodySearch.includes(search);
+    return titleSearch.toUpperCase().includes(search) || bodySearch.toUpperCase().includes(search);
   });
   cardSection.innerHTML = '';
   filter.forEach(function(filterInstance){
