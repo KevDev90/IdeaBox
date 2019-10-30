@@ -5,11 +5,12 @@ var saveButton = document.querySelector('.save-button');
 var cardSection = document.querySelector('.card-section');
 var userForm = document.querySelector('.user-input');
 var deleteButton = document.querySelector('.delete-inactive');
-var isItFav = "";
+var searchInput = document.querySelector('.search-input');
 
 onload = saveButton.classList.add("disabled-save-btn");
 onload = saveButton.disabled = true;
 
+searchInput.addEventListener('keyup', searchCards);
 userForm.addEventListener('keyup', validateUserInput);
 saveButton.addEventListener('click', addPastIdea);
 cardSection.addEventListener('click', buttonConditionals);
@@ -123,4 +124,17 @@ function buttonConditionals(event) {
   if(event.target.classList.contains('delete-inactive')) {
      deleteCard(event)
   }
+}
+
+function searchCards() {
+  var search = searchInput.value;
+  var filter = ideaLog.filter(function(idea){
+  var titleSearch = idea.title;
+  var bodySearch = idea.body;
+    return titleSearch.includes(search) || bodySearch.includes(search);
+  });
+  cardSection.innerHTML = '';
+  filter.forEach(function(filterInstance){
+    makeCard(filterInstance);
+  });
 }
