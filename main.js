@@ -2,11 +2,11 @@
 var bodyInput = document.querySelector(".body-input");
 var cardSection = document.querySelector(".card-section");
 var deleteButton = document.querySelector(".delete-inactive");
-var ideaLog = [];
 var saveButton = document.querySelector(".save-button");
 var searchInput = document.querySelector(".search-input");
 var titleInput = document.querySelector(".title-input");
 var userForm = document.querySelector(".user-input");
+var ideaLog = [];
 
 // when the window loads
 window.onload = checkLocalStorage();
@@ -82,19 +82,15 @@ function clearForm() {
   titleInput.value = "";
 }
 
-// Currently working on consolidating with this function
-// function findInstance(event) {
-//   var cardId = event.target.closest(".card").id;
-//   var instance = ideaLog.find(function(idea){
-//   return Number(idea.id) === Number(cardId);
-//   })
-// }
+function findInstance(event) {
+  var cardId = event.target.closest(".card").id;
+  return ideaLog.find(function(idea){
+    return Number(idea.id) === Number(cardId);
+  })
+}
 
 function starButton(event) {
-  var cardId = event.target.closest(".card").id;
-  var instance = ideaLog.find(function(idea){
-  return Number(idea.id) === Number(cardId);
-  })
+  var instance = findInstance(event);
   instance.toggleStar();
   if (!instance.star) {
     event.target.classList.remove("star-true");
@@ -105,12 +101,9 @@ function starButton(event) {
 }
 
 function deleteCard(event) {
-  var cardId = event.target.closest(".card").id;
-  var instance = ideaLog.find(function(idea){
-  return Number(idea.id) === Number(cardId);
-  })
+  var instance = findInstance(event);
   instance.removeFromLocal()
-  removeCardObj(cardId);
+  removeCardObj(instance.id);
   event.target.closest(".card").remove();
 }
 
