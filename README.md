@@ -14,8 +14,8 @@ GitHub Pages: https://kevdev90.github.io/IdeaBox
 ![example_comp_mobile](https://user-images.githubusercontent.com/53405028/67904505-2d655e80-fb34-11e9-930b-a920fb2b325e.jpg)
 
 ### Our Team's Composition Screenshots
-![our_comp_desktop](https://user-images.githubusercontent.com/53405028/67904469-14f54400-fb34-11e9-8823-4f1b4bb5021f.jpg)
-![our_comp_mobile](https://user-images.githubusercontent.com/53405028/67904516-30f8e580-fb34-11e9-8f92-571a895c23d0.png)
+![our_comp_desktop](https://user-images.githubusercontent.com/53405028/67915438-9c54ae80-fb58-11e9-95b4-cb802ae64806.jpg)
+![our_comp_mobile](https://user-images.githubusercontent.com/53405028/67915449-a4145300-fb58-11e9-9b30-be7e55dd1514.png)
 
 ### Contributors
 Zachary Nemeroff, Kevin Johnson, Johnny Cassidy
