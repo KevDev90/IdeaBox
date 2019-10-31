@@ -163,6 +163,7 @@ label {
 
 /* This styles the different cards created */
 .card {
+  background-color: #FFF;
   border: 2px solid #1F1F3D;
   display: flex;
   flex-direction: column;
@@ -218,6 +219,7 @@ h2 {
 
 p {
   font-size: 152%;
+  font-weight: lighter;
   margin: 15px;
 }
 
